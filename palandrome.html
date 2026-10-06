@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Palindrome Number Checker</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        input {
+            padding: 8px;
+            width: 200px;
+        }
+
+        button {
+            padding: 8px 15px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+
+        #result {
+            display: none;
+            margin: 20px auto;
+            padding: 10px;
+            width: 350px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Palindrome Number Checker</h1>
+
+    <p>Enter a number:</p>
+
+    <input type="number" id="numberInput">
+
+    <button onclick="checkPalindrome()">Check</button>
+
+    <div id="result"></div>
+
+
+    <script>
+        function checkPalindrome() {
+
+            // Get the value entered by the user
+            let input = document.getElementById("numberInput").value;
+
+            // Check if input is empty
+            if (input === "") {
+                alert("Please enter a number.");
+                return;
+            }
+
+            // Store the original number
+            let original = input;
+
+            // Reverse the number
+            let reversed = "";
+
+            for (let i = original.length - 1; i >= 0; i--) {
+                reversed = reversed + original[i];
+            }
+
+            // Get the result div
+            let result = document.getElementById("result");
+
+            // Show the hidden result
+            result.style.display = "block";
+
+            // Check whether original and reversed are equal
+            if (original === reversed) {
+                result.innerHTML =
+                    "<b>" + original + " is a Palindrome Number.</b>" +
+                    "<br>Reversed Number = " + reversed;
+            }
+            else {
+                result.innerHTML =
+                    "<b>" + original + " is NOT a Palindrome Number.</b>" +
+                    "<br>Reversed Number = " + reversed;
+            }
+        }
+    </script>
+
+</body>
+</html>
